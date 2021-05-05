@@ -1,18 +1,22 @@
 <template>
     <div id="app" class="container-fluid">
-        <nav>
-            <router-link class="btn btn-primary" to="/">Customers</router-link>
-            <router-link class="btn btn-primary" to="/add">Add</router-link>
-            <router-link class="btn btn-primary" to="/search">Search</router-link>
-        </nav>
+        <app-header />
         <br/>
         <router-view/>
+        <app-footer />
     </div>
 </template>
 
 <script>
+import AppHeader from "./components/AppHeader.vue";
+import AppFooter from "./components/AppFooter.vue";
+
 export default {
-  name: "app"
+  name: "app",
+  components: {
+    AppHeader,
+    AppFooter
+  }
 };
 </script>
 

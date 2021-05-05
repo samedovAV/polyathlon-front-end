@@ -4,6 +4,7 @@ import CustomersList from "./components/CustomersList.vue";
 import AddCustomer from "./components/AddCustomer.vue";
 import SearchCustomers from "./components/SearchCustomers.vue";
 import Customer from "./components/Customer.vue";
+import WelcomePage from "./components/WelcomePage.vue";
 
 Vue.use(Router);
 
@@ -12,6 +13,11 @@ export default new Router({
   routes: [
     {
       path: "/",
+      name: "welcome",
+      component: WelcomePage
+    },
+    {
+      path: "/customers",
       name: "customers",
       alias: "/customer",
       component: CustomersList,
