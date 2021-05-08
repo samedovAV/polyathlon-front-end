@@ -88,7 +88,7 @@ export default {
   name: 'WelcomePage',
   data() {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      msg: 'Welcome to Polyathlon App'
     }
   }
 }
