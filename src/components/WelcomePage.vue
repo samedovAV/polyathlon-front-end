@@ -1,35 +1,12 @@
 <template>
-  <div class="hello">
+  <div class="hello text-center">
     <h1>{{ msg }}</h1>
     <h2>Essential Links</h2>
-    <div class="text-center">
-    <v-btn class="ma-2" outlined color="indigo">Outlined Button</v-btn>
-    <v-btn class="ma-2" outlined fab color="teal">
-      <v-icon>mdi-format-list-bulleted-square</v-icon>
-    </v-btn>
-    <v-btn class="ma-2" outlined large fab color="indigo">
-      <v-icon>mdi-pencil</v-icon>
-    </v-btn>
-  </div>
     <ul>
       <li>
-        
-      </li>
-      <li>
-        <a
-          href="https://forum.vuejs.org"
-          target="_blank"
-        >
-          Forum
-        </a>
-      </li>
-      <li>
-        <a
-          href="https://twitter.com/vuejs"
-          target="_blank"
-        >
-          Twitter
-        </a>
+        <router-link to="/home" class="nav-link">
+          <v-btn rounded color="primary" dark>Home</v-btn>
+        </router-link>
       </li>
     </ul>
     <h2>Ecosystem</h2>

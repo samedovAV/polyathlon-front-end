@@ -7,6 +7,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import VeeValidate from 'vee-validate';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
+import Vuetify from 'vuetify'
 
 import {
   faHome,
@@ -16,18 +17,17 @@ import {
   faSignOutAlt
 } from '@fortawesome/free-solid-svg-icons';
 
-import vuetify from './plugins/vuetify'
-
 library.add(faHome, faUser, faUserPlus, faSignInAlt, faSignOutAlt);
 
 Vue.config.productionTip = false;
 
 Vue.use(VeeValidate)
+Vue.use(Vuetify)
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 
 new Vue({
   router,
   store,
-  vuetify,
+  vuetify: new Vuetify(),
   render: h => h(App)
 }).$mount("#app");
