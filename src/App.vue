@@ -2,7 +2,6 @@
     <div id="app" class="container-fluid">
         <app-header />
         <br/>
-        <router-view/>
         <app-footer />
     </div>
 </template>
@@ -16,6 +15,31 @@ export default {
   components: {
     AppHeader,
     AppFooter
+  },
+  computed: {
+    currentUser() {
+      return this.$store.state.auth.user;
+    },
+    showAdminBoard() {
+      if (this.currentUser && this.currentUser.roles) {
+        return this.currentUser.roles.includes('ROLE_ADMIN');
+      }
+
+      return false;
+    },
+    showModeratorBoard() {
+      if (this.currentUser && this.currentUser.roles) {
+        return this.currentUser.roles.includes('ROLE_MODERATOR');
+      }
+
+      return false;
+    }
+  },
+  methods: {
+    logOut() {
+      this.$store.dispatch('auth/logout');
+      this.$router.push('/login');
+    }
   }
 };
 </script>

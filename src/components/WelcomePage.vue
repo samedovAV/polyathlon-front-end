@@ -2,14 +2,18 @@
   <div class="hello">
     <h1>{{ msg }}</h1>
     <h2>Essential Links</h2>
+    <div class="text-center">
+    <v-btn class="ma-2" outlined color="indigo">Outlined Button</v-btn>
+    <v-btn class="ma-2" outlined fab color="teal">
+      <v-icon>mdi-format-list-bulleted-square</v-icon>
+    </v-btn>
+    <v-btn class="ma-2" outlined large fab color="indigo">
+      <v-icon>mdi-pencil</v-icon>
+    </v-btn>
+  </div>
     <ul>
       <li>
-        <a
-          href="https://vuejs.org"
-          target="_blank"
-        >
-          Core Docs
-        </a>
+        
       </li>
       <li>
         <a
@@ -21,27 +25,10 @@
       </li>
       <li>
         <a
-          href="https://chat.vuejs.org"
-          target="_blank"
-        >
-          Community Chat
-        </a>
-      </li>
-      <li>
-        <a
           href="https://twitter.com/vuejs"
           target="_blank"
         >
           Twitter
-        </a>
-      </li>
-      <br>
-      <li>
-        <a
-          href="http://vuejs-templates.github.io/webpack/"
-          target="_blank"
-        >
-          Docs for This Template
         </a>
       </li>
     </ul>
@@ -110,5 +97,8 @@ li {
 }
 a {
   color: #42b983;
+}
+.hello {
+  margin-top: 25%;
 }
 </style>
