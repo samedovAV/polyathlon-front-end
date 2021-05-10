@@ -1,5 +1,9 @@
 <template>
     <div class="list row">
+      <router-link class="btn btn-primary" to="/home">Home</router-link>
+        <router-link class="btn btn-primary" to="/customers">Customers</router-link>
+        <router-link class="btn btn-primary" to="/add">Add</router-link>
+        <router-link class="btn btn-primary" to="/search">Search</router-link>
         <div class="col-md-6">
             <h4>Customers List</h4>
             <ul>

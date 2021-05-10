@@ -8,6 +8,16 @@
           <v-btn rounded color="primary" dark>Home</v-btn>
         </router-link>
       </li>
+      <li>
+        <router-link to="/customers" class="nav-link">
+          <v-btn rounded color="primary" dark>Customers (test)</v-btn>
+        </router-link>
+      </li>
+      <li>
+        <router-link to="/events" class="nav-link">
+          <v-btn rounded color="primary" dark>Events</v-btn>
+        </router-link>
+      </li>
     </ul>
     <h2>Ecosystem</h2>
     <ul>
@@ -33,14 +43,6 @@
           target="_blank"
         >
           vue-loader
-        </a>
-      </li>
-      <li>
-        <a
-          href="https://github.com/vuejs/awesome-vue"
-          target="_blank"
-        >
-          awesome-vue
         </a>
       </li>
     </ul>
