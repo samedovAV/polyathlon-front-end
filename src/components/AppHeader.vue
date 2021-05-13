@@ -1,5 +1,34 @@
 <template>
-<div id="app">
+<div>
+    <v-app-bar
+      color="deep-purple accent-4"
+      dense
+      dark
+    >
+      
+      <v-btn>
+        <router-link to="/home" class="nav-link">
+            <font-awesome-icon icon="home" /> Home
+        </router-link>
+      </v-btn>
+
+      <v-toolbar-title>Page title</v-toolbar-title>
+
+      <v-spacer></v-spacer>
+
+      <v-btn>
+        <router-link to="/home" class="nav-link">
+            <font-awesome-icon icon="home" /> Home
+        </router-link>
+      </v-btn>
+      
+    </v-app-bar>
+
+    <div class="container">
+      <router-view />
+    </div>
+  </div>
+<!--<div id="app">
     <nav class="navbar navbar-expand navbar-dark bg-dark">
       <div class="navbar-nav mr-auto">
         <li class="nav-item" v-if="$route.path != '/'">
@@ -49,9 +78,8 @@
     <div class="container">
       <router-view />
     </div>
-  </div>
-  <!--
-  <header>
+  </div> -->
+<!--  <header>
     <p>Polyathlon Application</p>
     <nav>
         <router-link class="btn btn-primary" to="/home">Home</router-link>
@@ -93,23 +121,5 @@ export default {
 }
 </script>
 
-<style >
-header {
-    display: flex;
-    border-bottom: 1px solid #ccc;
-    padding: .5rem 1rem;
-}
-
-header p {
-    margin-left: 1rem;
-}   
-
-nav ul {
-    list-style: none;
-}  
-
-nav ul li {
-    display: inline-flex;
-    margin-left: 1rem;
-}   
+<style >  
 </style>

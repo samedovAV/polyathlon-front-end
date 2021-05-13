@@ -2,10 +2,10 @@
 <div>
     <h4>Events List</h4>
     <v-container>
-        <v-row v-for="(event, index) in events" :key="index">
+    <v-row v-for="(event, index) in events" :key="index">
     <v-card
     class="mx-auto"
-  >
+    >
     <v-img
       class="white--text align-end"
       height="200px"
@@ -13,34 +13,34 @@
     >
     </v-img>
 
-    <v-card-subtitle class="pb-0">
+    <v-card-title class="pb-0">
       {{event.title}}
-    </v-card-subtitle>
+    </v-card-title>
 
-    <v-card-text class="text--primary">
-      <div>Whitehaven Beach</div>
-
-      <div>Whitsunday Island, Whitsunday Islands</div>
+    <v-card-text align="left">
+      <div class="my-4 subtitle-1">{{event.description}}</div>
     </v-card-text>
 
     <v-card-actions>
       <v-btn
         text
         color="green"
-        
       >
         Share
       </v-btn>
 
-      <v-btn
+      <router-link :to="{name: 'event-details', 
+                        params: {id: event.id }}" target="_blank">
+        <v-btn 
         color="orange"
         text
       >
         Explore
       </v-btn>
+      </router-link>
     </v-card-actions>
-  </v-card>
-</v-row>
+    </v-card>
+    </v-row>
     </v-container>
 </div>
 </template>

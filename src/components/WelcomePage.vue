@@ -1,5 +1,6 @@
 <template>
-  <div class="hello text-center">
+  <div style="margin-top: 30vh" fill-height align="center"
+      justify="center">
     <h1>{{ msg }}</h1>
     <h2>Essential Links</h2>
     <ul>
@@ -17,33 +18,6 @@
         <router-link to="/events" class="nav-link">
           <v-btn rounded color="primary" dark>Events</v-btn>
         </router-link>
-      </li>
-    </ul>
-    <h2>Ecosystem</h2>
-    <ul>
-      <li>
-        <a
-          href="http://router.vuejs.org/"
-          target="_blank"
-        >
-          vue-router
-        </a>
-      </li>
-      <li>
-        <a
-          href="http://vuex.vuejs.org/"
-          target="_blank"
-        >
-          vuex
-        </a>
-      </li>
-      <li>
-        <a
-          href="http://vue-loader.vuejs.org/"
-          target="_blank"
-        >
-          vue-loader
-        </a>
       </li>
     </ul>
   </div>

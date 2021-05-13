@@ -9,6 +9,7 @@ import Home from './views/Home.vue';
 import Login from './views/Login.vue';
 import Register from './views/Register.vue';
 import EventsList from './components/EventsList.vue';
+import Event from './components/Event.vue';
 
 Vue.use(Router);
 
@@ -35,8 +36,15 @@ export default new Router({
       ]
     },
     {
+      path: "/events/:id",
+      name: "event-details",
+      component: Event,
+      props: true
+    },
+    {
       path: "/events",
       name: "events",
+      alias: "/event",
       component: EventsList
     },
     {
