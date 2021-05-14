@@ -10,6 +10,11 @@
         </router-link>
       </li>
       <li>
+        <router-link to="/sportsmen" class="nav-link">
+          <v-btn rounded color="primary" dark>Sportsmen List</v-btn>
+        </router-link>
+      </li>
+      <li>
         <router-link to="/customers" class="nav-link">
           <v-btn rounded color="primary" dark>Customers (test)</v-btn>
         </router-link>

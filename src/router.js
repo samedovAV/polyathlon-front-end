@@ -10,6 +10,7 @@ import Login from './views/Login.vue';
 import Register from './views/Register.vue';
 import EventsList from './components/EventsList.vue';
 import Event from './components/Event.vue';
+import SportsmenList from './components/SportsmenList.vue';
 
 Vue.use(Router);
 
@@ -46,6 +47,12 @@ export default new Router({
       name: "events",
       alias: "/event",
       component: EventsList
+    },
+    {
+      path: "/sportsmen",
+      name: "sportsmen",
+      alias: "/sportsman",
+      component: SportsmenList
     },
     {
       path: "/add",
