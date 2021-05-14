@@ -1,9 +1,27 @@
 <template>
-    <v-card
-    class="mx-auto"
-    >
-        <v-list></v-list>
-    </v-card>
+    <v-simple-table>
+    <template v-slot:default>
+      <thead>
+        <tr>
+          <th class="text-left">
+            Name
+          </th>
+          <th class="text-left">
+            Calories
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          v-for="item in sportsmen"
+          :key="item.firstName"
+        >
+          <td>{{ item.firstName }}</td>
+          <td>{{ item.firstName }}</td>
+        </tr>
+      </tbody>
+    </template>
+  </v-simple-table>
 </template>
 
 <script>
