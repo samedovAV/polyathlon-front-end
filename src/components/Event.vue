@@ -7,7 +7,7 @@
     ></v-img>
 
     <v-card-title>
-      Top western road trips
+      {{event.description}}
     </v-card-title>
 
     <v-card-subtitle>
@@ -25,9 +25,10 @@
       <v-spacer></v-spacer>
 
       <v-btn
-        icon
-        @click="show = !show"
+        color="orange lighten-2"
+        text
       >
+        Подать заявку
       </v-btn>
 
     </v-card-actions>
@@ -37,11 +38,27 @@
 </template>
 
 <script>
+import http from "../http-common";
+
 export default {
-  name: "event-details",
-  data: () => ({
-    show: false,
-  }),
+  name: "event",
+  data() {
+    return {
+      event: {}
+    }
+  },
+  methods: {
+    getEvent() {
+      http
+      .get('events/list/' + this.$route.params.id)
+      .then(response => {
+        this.event = response.data;
+      })
+    }
+  },
+  mounted() {
+    this.getEvent()
+  }
   // call via API event
 };
 </script>

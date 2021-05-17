@@ -11,6 +11,7 @@ import Register from './views/Register.vue';
 import EventsList from './components/EventsList.vue';
 import Event from './components/Event.vue';
 import SportsmenList from './components/SportsmenList.vue';
+import Sportsman from './components/Sportsman.vue';
 
 Vue.use(Router);
 
@@ -47,6 +48,11 @@ export default new Router({
       name: "events",
       alias: "/event",
       component: EventsList
+    },
+    {
+      path: "/sportsmen/:id",
+      name: "sportsman-details",
+      component: Sportsman
     },
     {
       path: "/sportsmen",

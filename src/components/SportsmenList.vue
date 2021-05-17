@@ -13,11 +13,20 @@
       </thead>
       <tbody>
         <tr
-          v-for="item in sportsmen"
-          :key="item.firstName"
+          v-for="sportsman in sportsmen"
+          :key="sportsman.firstName"
         >
-          <td>{{ item.firstName }}</td>
-          <td>{{ item.firstName }}</td>
+          <td>{{ sportsman.firstName }}</td>
+          <td>{{ sportsman.firstName }}</td>
+          <td><router-link :to="{name: 'sportsman-details', 
+                        params: {sportsman: sportsman, id: sportsman.id }}" target="_blank">
+        <v-btn 
+        color="orange"
+        text
+      >
+        Explore
+      </v-btn>
+      </router-link></td>          
         </tr>
       </tbody>
     </template>

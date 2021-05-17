@@ -30,7 +30,7 @@
       </v-btn>
 
       <router-link :to="{name: 'event-details', 
-                        params: {id: event.id }}" target="_blank">
+                        params: {event:event, id: event.id }}" target="_blank">
         <v-btn 
         color="orange"
         text
@@ -58,7 +58,7 @@ export default {
     methods: {
     retrieveEvents() {
       http
-        .get("/events")
+        .get("/events/list")
         .then(response => {
           this.events = response.data; // JSON are parsed automatically.
         })
