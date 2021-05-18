@@ -32,17 +32,18 @@
       </v-btn>
 
     </v-card-actions>
+    <hr>
+    <v-expansion-panels class="mb-6">
+      <v-expansion-panel disable-icon-rotate>
+        <v-expansion-panel-header>
+          Участия в мероприятиях
+        </v-expansion-panel-header>
+        <v-expansion-panel-content v-for="(item,i) in participationList" :key="i" ripple >
+          {{item.name}}
+        </v-expansion-panel-content>
+      </v-expansion-panel>
+    </v-expansion-panels>
 
-     <v-expansion-panels>
-    <v-expansion-panel>
-      <v-expansion-panel-header>
-        Список мероприятий
-      </v-expansion-panel-header>
-      <v-expansion-panel-content>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-      </v-expansion-panel-content>
-    </v-expansion-panel>
-  </v-expansion-panels>
   </v-card>
 </template>
 
@@ -53,7 +54,8 @@ export default {
   name: "sportsman",
    data() {   
     return {
-        sportsman: {}
+        sportsman: {},
+        participationList: []
     }
   },
   methods: {
@@ -63,10 +65,18 @@ export default {
             .then(response => {
                 this.sportsman = response.data;
             })
+       },
+       getParticipationList() {
+         http
+          .get('participation/list?sportsmanId' + this.$route.params.id)
+          .then(response => {
+            this.participationList = response.data;
+          })
        }
    },
   mounted() {
-      this.getSportsman()
+      this.getSportsman(),
+      this.getParticipationList()
   }   
   // call via API event
 };
