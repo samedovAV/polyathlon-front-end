@@ -12,6 +12,7 @@ import EventsList from './components/EventsList.vue';
 import Event from './components/Event.vue';
 import SportsmenList from './components/SportsmenList.vue';
 import Sportsman from './components/Sportsman.vue';
+import AddPartApplication from './components/AddPartApplication.vue';
 
 Vue.use(Router);
 
@@ -59,6 +60,11 @@ export default new Router({
       name: "sportsmen",
       alias: "/sportsman",
       component: SportsmenList
+    },
+    {
+      path: "/add-participation-application",
+      name: "part-application",
+      component: AddPartApplication
     },
     {
       path: "/add",

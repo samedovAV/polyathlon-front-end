@@ -38,6 +38,18 @@
         Explore
       </v-btn>
       </router-link>
+
+      <v-spacer></v-spacer>
+
+      <router-link to="/add-participation-application" target="_blank">
+        <v-btn
+        color="orange lighten-2"
+        text
+      >
+        Подать заявку
+      </v-btn>
+      </router-link>
+
     </v-card-actions>
     </v-card>
     </v-row>

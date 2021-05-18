@@ -22,15 +22,6 @@
         Explore
       </v-btn>
 
-      <v-spacer></v-spacer>
-
-      <v-btn
-        color="orange lighten-2"
-        text
-      >
-        Подать заявку
-      </v-btn>
-
     </v-card-actions>
 
 
