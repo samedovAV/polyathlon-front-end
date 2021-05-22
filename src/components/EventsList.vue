@@ -41,7 +41,8 @@
 
       <v-spacer></v-spacer>
 
-      <router-link to="/add-participation-application" target="_blank">
+      <router-link :to="{name: 'part-application', 
+                        params: {event:event, id: event.id }}" target="_blank">
         <v-btn
         color="orange lighten-2"
         text
