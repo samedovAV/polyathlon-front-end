@@ -52,6 +52,12 @@
       </router-link>
 
     </v-card-actions>
+      <div data-app>
+        <applications-modal :event="event"/>
+      </div>
+    <v-card-actions>
+     
+    </v-card-actions>
     </v-card>
     </v-row>
     </v-container>
@@ -60,9 +66,13 @@
 
 <script>
 import http from "../http-common";
+import ApplicationsModal from './ApplicationsModal.vue'
 
 export default {
     name: "events-list",
+    components: {
+      ApplicationsModal
+    },
     data() {
         return {
             events: []

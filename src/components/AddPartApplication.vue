@@ -17,6 +17,11 @@
             :counter="10"
             required
           ></v-text-field>
+          <v-text-field
+            v-model="$route.params.id"
+            :counter="10"
+            required
+          ></v-text-field>
         </v-col>
       </v-row>
       <v-btn
@@ -39,10 +44,12 @@
 import http from "../http-common";
 
   export default {
-    name: "add-participation-application",
     computed: {
       currentUser() {
         return this.$store.state.auth.user;
+      },
+      currentEvent() {
+        return this.$route.params.id;
       } 
     },
     data() {
@@ -59,7 +66,7 @@ import http from "../http-common";
     methods: {
       saveApplication() {
         var data = {
-          id: this.$route.params.id,
+          eventId: this.currentEvent,
           university: this.partApplication.university,
           creator: this.currentUser
         }

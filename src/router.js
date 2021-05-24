@@ -13,6 +13,7 @@ import Event from './components/Event.vue';
 import SportsmenList from './components/SportsmenList.vue';
 import Sportsman from './components/Sportsman.vue';
 import AddPartApplication from './components/AddPartApplication.vue';
+import ApplicationsModal from './components/ApplicationsModal.vue';
 
 Vue.use(Router);
 
@@ -62,9 +63,16 @@ export default new Router({
       component: SportsmenList
     },
     {
-      path: "/add-participation-application",
+      path: "/events/:id/add-participation-application",
       name: "part-application",
-      component: AddPartApplication
+      component: AddPartApplication,
+      props: true
+    },
+    {
+      path: "/events/:id/view-applications",
+      name: "view-applications",
+      component: ApplicationsModal,
+      props: true
     },
     {
       path: "/add",
