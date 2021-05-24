@@ -193,7 +193,7 @@ import http from "../http-common";
       http
         .get("/events/list")
         .then(response => {
-          this.events = response.data; // JSON are parsed automatically.
+          this.events = response.data;
         })
       },
       rnd (a, b) {
