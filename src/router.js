@@ -14,6 +14,7 @@ import SportsmenList from './components/SportsmenList.vue';
 import Sportsman from './components/Sportsman.vue';
 import AddPartApplication from './components/AddPartApplication.vue';
 import ApplicationsModal from './components/ApplicationsModal.vue';
+import Calendar from './components/Calendar.vue';
 
 Vue.use(Router);
 
@@ -72,6 +73,12 @@ export default new Router({
       path: "/events/:id/view-applications",
       name: "view-applications",
       component: ApplicationsModal,
+      props: true
+    },
+    {
+      path: "/calendar",
+      name: "calendar",
+      component: Calendar,
       props: true
     },
     {

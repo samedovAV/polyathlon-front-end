@@ -25,8 +25,9 @@ Vue.use(Vuetify)
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 
 new Vue({
+  el: '#app',
   router,
   store,
   vuetify: new Vuetify,
   render: h => h(App)
-}).$mount("#app");
+})

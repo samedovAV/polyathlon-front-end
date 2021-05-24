@@ -17,16 +17,20 @@
       <v-spacer></v-spacer>
 
       <v-btn v-if="showAdminBoard">
+        <router-link to="/calendar" class="nav-link" target="_blank">Calendar</router-link>
+      </v-btn>
+
+      <v-btn v-if="showAdminBoard">
         <router-link to="/admin" class="nav-link">Admin Board</router-link>
       </v-btn>
 
       <v-btn v-if="showModeratorBoard">
         <router-link to="/mod" class="nav-link">Moderator Board</router-link>
       </v-btn>
-
+      <!--
       <v-btn v-if="currentUser">
         <router-link v-if="currentUser" to="/user" class="nav-link">User</router-link>
-      </v-btn>
+      </v-btn>-->
 
       <v-btn v-if="!currentUser">
         <router-link to="/register" class="nav-link">
