@@ -193,7 +193,7 @@ import http from "../http-common";
       http
         .get("/events/list")
         .then(response => {
-          this.events = response.data;
+          this.events = response.data
         })
       },
       rnd (a, b) {
