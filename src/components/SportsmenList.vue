@@ -1,62 +1,102 @@
 <template>
-    <v-simple-table>
-    <template v-slot:default>
-      <thead>
-        <tr>
-          <th class="text-left">
-            Name
-          </th>
-          <th class="text-left">
-            Calories
-          </th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr
-          v-for="sportsman in sportsmen"
-          :key="sportsman.firstName"
-        >
-          <td>{{ sportsman.firstName }}</td>
-          <td>{{ sportsman.firstName }}</td>
-          <td><router-link :to="{name: 'sportsman-details', 
-                        params: {sportsman: sportsman, id: sportsman.id }}" target="_blank">
-        <v-btn 
-        color="orange"
-        text
+<v-app>
+    <v-data-table
+      :headers="headers"
+      :items="sportsmen"
+      class="elevation-1"
+    >
+    <template v-slot:top>
+      <v-toolbar
+        flat
       >
-        Explore
-      </v-btn>
-      </router-link></td>          
-        </tr>
-      </tbody>
+        <v-toolbar-title>Глобальный список участников</v-toolbar-title>
+        <v-divider
+          class="mx-4"
+          inset
+          vertical
+        ></v-divider>
+        <v-spacer></v-spacer>
+        <div data-app>
+          <add-sportsmen-form-modal/>
+        </div>
+      </v-toolbar>
     </template>
-  </v-simple-table>
+    <template v-slot:[`item.action`]="{ item }">
+      <router-link :to="{name: 'sportsman-details', 
+                        params: { id: item.id }}" target="_blank">
+      <v-icon
+        small
+        class="mr-2"
+      >
+        mdi-open-in-new
+      </v-icon>
+      </router-link>
+      <v-icon
+        small
+        class="mr-2"
+      >
+        mdi-pencil
+      </v-icon>
+      <v-icon
+        small
+        class="mr-2"
+        v-on:click="() => deleteSportsman(item.id)"
+        @click="reloadPage"
+      >
+        mdi-delete
+      </v-icon>
+    </template>
+  </v-data-table>
+  <router-view @refreshData="refreshList"></router-view>
+</v-app>
 </template>
 
 <script>
-import http from "../http-common"; 
+import http from "../http-common";
+import AddSportsmenFormModal from "./AddSportsmenFormModal.vue"; 
 
 export default {
     name: "sportsmen-list",
+    components: {
+      AddSportsmenFormModal
+    },
     data() {
         return {
-            sportsmen: []
+            sportsmen: [],
+            headers: [
+              {
+                text: 'Имя',
+                align: 'start',
+                sortable: false,
+                value: 'firstName',
+              },
+              { text: 'Фамилия', value: 'lastName' },
+              { text: 'Год рождения', value: 'yearOfBirth'},
+              { text: "Действия", value: "action" }
+          ]
         };
     },
     methods: {
-        retrieveSportsmen() {
-            http
-                .get("/sportsman/list")
-                .then(response => {
-                    this.sportsmen = response.data;
-                })
+        async retrieveSportsmen() {
+
+          const sportsmenRes = (await http.get("/sportsman/list")).data
+
+          this.sportsmen = sportsmenRes
         },
         refreshList() {
             this.retrieveSportsmen();
-        }
+        },
+        async deleteSportsman(id) {
+          await http.delete("/sportsman/list/" + id)
+          .then(() => {this.$emit("refreshData")})
+        },
+        reloadPage() {
+          window.location.reload();
+        } 
     },
     mounted() {
         this.retrieveSportsmen();
+        this.refreshList()
     }
 }
 </script>

@@ -14,32 +14,34 @@
       {{sportsman.lastName}}
     </v-card-subtitle>
 
-    <v-card-actions>
-      <v-btn
-        color="orange lighten-2"
-        text
-      >
-        Explore
-      </v-btn>
-
-      <v-spacer></v-spacer>
-
-      <v-btn
-        color="orange lighten-2"
-        text
-      >
-        
-      </v-btn>
-
-    </v-card-actions>
-    <hr>
+    <v-card-actions></v-card-actions>
+    
     <v-expansion-panels class="mb-6">
       <v-expansion-panel disable-icon-rotate>
         <v-expansion-panel-header>
           Участия в мероприятиях
         </v-expansion-panel-header>
         <v-expansion-panel-content v-for="(item,i) in participationList" :key="i" ripple >
-          {{item.name}}
+          <v-simple-table>
+          <template v-slot:default>
+            <thead>
+              <tr>
+                <th class="text-left">
+                  Название
+                </th>
+                <th class="text-left">
+                  Результат
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>{{ item.name }}</td>
+                <td>{{ item.result }}</td>
+              </tr>
+            </tbody>
+          </template>
+          </v-simple-table>
         </v-expansion-panel-content>
       </v-expansion-panel>
     </v-expansion-panels>
@@ -68,7 +70,7 @@ export default {
        },
        getParticipationList() {
          http
-          .get('participation/list?sportsmanId' + this.$route.params.id)
+          .get('participation/list?sportsmanId=' + this.$route.params.id)
           .then(response => {
             this.participationList = response.data;
           })

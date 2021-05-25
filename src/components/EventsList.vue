@@ -1,6 +1,6 @@
 <template>
 <div>
-    <h4>Events List</h4>
+    <h4 class="text-center">Список мероприятий</h4>
     <v-container>
     <v-row v-for="(event, index) in events" :key="index">
     <v-card
