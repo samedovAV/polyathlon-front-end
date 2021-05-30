@@ -70,7 +70,7 @@ export default {
        },
        getParticipationList() {
          http
-          .get('participation/list?sportsmanId=' + this.$route.params.id)
+          .get('participation/list/' + this.$route.params.id)
           .then(response => {
             this.participationList = response.data;
           })

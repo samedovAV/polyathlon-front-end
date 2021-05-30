@@ -47,7 +47,6 @@
       </v-icon>
     </template>
   </v-data-table>
-  <router-view @refreshData="refreshList"></router-view>
 </v-app>
 </template>
 
@@ -83,12 +82,8 @@ export default {
 
           this.sportsmen = sportsmenRes
         },
-        refreshList() {
-            this.retrieveSportsmen();
-        },
         async deleteSportsman(id) {
           await http.delete("/sportsman/list/" + id)
-          .then(() => {this.$emit("refreshData")})
         },
         reloadPage() {
           window.location.reload();
@@ -96,7 +91,6 @@ export default {
     },
     mounted() {
         this.retrieveSportsmen();
-        this.refreshList()
     }
 }
 </script>

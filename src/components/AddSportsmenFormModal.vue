@@ -78,7 +78,6 @@
         </v-card-actions>
       </v-card>
     </v-dialog>
-    <router-view @refreshData="refreshList"></router-view>
   </div>
 </template>
 
